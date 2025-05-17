@@ -7,6 +7,7 @@ from tkinter import filedialog
 def process_file(file_path):
     marks_dict = fc.generate_marks(fc.csv_to_dict("./5.1_temat.csv"), 0, 10)
     print(f"Processing file {file_path}")
+    
 
 
 def load_file():
