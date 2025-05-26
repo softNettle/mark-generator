@@ -40,11 +40,14 @@ class MarkApp:
     def update_table(self, data):
         self.tree.delete(*self.tree.get_children())
         max_marks = max(len(marks) for marks in data.values())
-        columns = ["Student"] + [i + 1 for i in range(max_marks)]
+        columns = ["Student"] + [f"M{i + 1}" for i in range(max_marks)]
         self.tree["columns"] = columns
         for col in columns:
             self.tree.heading(col, text=col)
-            self.tree.column(col, width=100)
+            if col == "Student":
+                self.tree.column(col, width=240, stretch=False)
+            else:
+                self.tree.column(col, width=40, stretch=False, anchor="center")
         for student, marks in data.items():
             row = [student] + list(marks) + [""] * (max_marks - len(marks))
             self.tree.insert("", "end", values=row)
