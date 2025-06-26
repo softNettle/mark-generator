@@ -30,12 +30,16 @@ def generate_marks(mark_dict, column, amount):
         while result != them_mark:
             if them_mark == 12:
                 new_marks = fill_tuple(11,12)
-            elif them_mark == 11:
-                new_marks = fill_tuple(9,12)
-            elif them_mark == 9 or them_mark == 10:
-                new_marks = fill_tuple(7, 11)
+            elif them_mark == 1:
+                new_marks = fill_tuple(1, 2)
+            # elif them_mark == 11:
+            #     new_marks = fill_tuple(10,12)
+            # elif them_mark == 9 or them_mark == 10:
+            #     new_marks = fill_tuple(8, 11)
+            # elif them_mark == 8:
+            #     new_marks = fill_tuple(7, 9)
             else:
-                new_marks = fill_tuple(1, 10)
+                new_marks = fill_tuple(them_mark - 1, them_mark + 1)
             average = sum(new_marks) / len(new_marks)
             result = custom_round(average)
         if result:
